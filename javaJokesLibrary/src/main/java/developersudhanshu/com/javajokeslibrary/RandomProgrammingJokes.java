@@ -14,7 +14,7 @@ public class RandomProgrammingJokes {
                 "A pessimist says \"The glass is half empty.\"\n" +
                 "A programmer says \"The glass is twice as large as necessary.\"");
         add("A programmer puts two glasses on his bedside table before going to sleep." +
-                " A full one, in case he gets thirsty, and an empty one, in case he doesn’t.");
+                " A full one, in case he gets thirsty, and an empty one, in case he doesn\'t.");
         add("The best thing about a Boolean is that even if you are wrong, you are only off by a bit.");
         add("Why do programmers always mix up Christmas and Halloween?\n" +
                 "Because Dec 25 is Oct 31.");

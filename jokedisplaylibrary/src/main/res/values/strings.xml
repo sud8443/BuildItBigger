@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JokeDisplayLibrary</string>
+    <string name="joke_hint">Joke to be displayed here!</string>
+</resources>

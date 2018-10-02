@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     // Dependency between jokesJavaLibrary and the app
     implementation project(':javaJokesLibrary')
+    // Dependency between jokedisplaylibrary and the app
+    implementation project(':jokedisplaylibrary')
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
