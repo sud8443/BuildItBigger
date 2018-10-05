@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.paid;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import android.util.Log;
 
 import developersudhanshu.com.javajokeslibrary.RandomProgrammingJokes;
 import developersudhanshu.com.jokedisplaylibrary.JokeConstants;
 import developersudhanshu.com.jokedisplaylibrary.JokeDisplayActivity;
+
+// Since these two files are the part of the main conifguration
+import com.udacity.gradle.builditbigger.EndPointAsyncTask;
+import com.udacity.gradle.builditbigger.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.v("PAID_LOG_JOKE", "Running successfully");
     }
 
 
