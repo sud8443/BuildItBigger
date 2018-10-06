@@ -15,19 +15,30 @@
         android:text="@string/instructions" />
 
     <Button
+        android:id="@+id/btn_joke_fetching"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/instructions_text_view"
         android:onClick="tellJoke"
         android:text="@string/button_text" />
 
-    <!--<com.google.android.gms.ads.AdView-->
-        <!--android:id="@+id/adView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--ads:adSize="BANNER"-->
-        <!--ads:adUnitId="@string/banner_ad_unit_id" />-->
+    <LinearLayout
+        android:id="@+id/ll_loading_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:layout_centerVertical="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/default_text_size"
+            android:textColor="@android:color/black"
+            android:text="@string/joke_loading_text"/>
 
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
 </RelativeLayout>

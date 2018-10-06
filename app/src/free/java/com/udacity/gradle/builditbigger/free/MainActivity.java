@@ -53,9 +53,13 @@ public class MainActivity extends AppCompatActivity {
         EndPointAsyncTask asyncTask = new EndPointAsyncTask();
         asyncTask.execute(new Pair<Context, String>(this, "ABC"));
 
+        final MainActivityFragment fragment = (MainActivityFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_free);
+        fragment.changeLoadingLayoutVisibilty(true);
         asyncTask.setJokeResultListner(new EndPointAsyncTask.JokeResultListener() {
             @Override
             public void gotJokeFromApi(String joke) {
+                fragment.changeLoadingLayoutVisibilty(false);
                 Intent jokeIntent = new Intent(MainActivity.this, JokeDisplayActivity.class);
                 jokeIntent.putExtra(JokeConstants.JOKE_INTENT_EXTRA, joke);
                 startActivity(jokeIntent);
