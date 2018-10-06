@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.udacity.gradle.builditbigger.EndPointAsyncTask;
 import com.udacity.gradle.builditbigger.R;
 
@@ -19,13 +21,23 @@ import developersudhanshu.com.jokedisplaylibrary.JokeDisplayActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private InterstitialAd mInterstitialAdObject;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.v("FREE_LOG_JOKE", "Running successfully");
+
+        mInterstitialAdObject = new InterstitialAd(this);
+        mInterstitialAdObject.setAdUnitId(getResources().getString(R.string.interstitial_ad_test_ad_unit));
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mInterstitialAdObject.loadAd(new AdRequest.Builder().build());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -63,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent jokeIntent = new Intent(MainActivity.this, JokeDisplayActivity.class);
                 jokeIntent.putExtra(JokeConstants.JOKE_INTENT_EXTRA, joke);
                 startActivity(jokeIntent);
+                if (mInterstitialAdObject.isLoaded()) {
+                    mInterstitialAdObject.show();
+                    Log.v(MainActivity.class.getSimpleName() + "_free", "Interstitial Ad locked and loaded");
+                }else
+                    Log.v(MainActivity.class.getSimpleName() + "_free", "Interstitial Ad not loaded yet");
+
             }
         });
     }
