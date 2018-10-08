@@ -18,6 +18,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
     private static MyApi api = null;
     private Context context;
     private JokeResultListener listener;
+    public static final String ASYNC_TASK_ERROR = "ASYNC_TASK_FAILED";
 
     public void setJokeResultListner(JokeResultListener listener){
         this.listener = listener;
@@ -45,7 +46,7 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
         try {
            return api.sayHi(name).execute().getData();
         } catch (IOException e) {
-            return e.getLocalizedMessage();
+            return ASYNC_TASK_ERROR;
         }
     }
 

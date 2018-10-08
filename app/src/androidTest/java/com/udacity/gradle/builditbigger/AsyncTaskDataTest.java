@@ -28,7 +28,8 @@ public class AsyncTaskDataTest {
         asyncTask.setJokeResultListner(new EndPointAsyncTask.JokeResultListener() {
             @Override
             public void gotJokeFromApi(String joke) {
-                assertTrue(joke, joke != null && joke.length() > 0);
+                assertTrue(joke, joke != null && joke.length() > 0 &&
+                        !joke.equals(EndPointAsyncTask.ASYNC_TASK_ERROR));
             }
         });
     }
