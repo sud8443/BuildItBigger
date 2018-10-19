@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.v("FREE_LOG_JOKE", "Running successfully");
 
         mInterstitialAdObject = new InterstitialAd(this);
         mInterstitialAdObject.setAdUnitId(getResources().getString(R.string.interstitial_ad_test_ad_unit));
@@ -77,10 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(jokeIntent);
                 if (mInterstitialAdObject.isLoaded()) {
                     mInterstitialAdObject.show();
-                    Log.v(MainActivity.class.getSimpleName() + "_free", "Interstitial Ad locked and loaded");
-                }else
-                    Log.v(MainActivity.class.getSimpleName() + "_free", "Interstitial Ad not loaded yet");
-
+                }
             }
         });
     }

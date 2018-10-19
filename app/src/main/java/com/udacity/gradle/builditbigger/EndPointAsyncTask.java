@@ -53,7 +53,6 @@ public class EndPointAsyncTask extends AsyncTask<Pair<Context, String>, Void, St
     @Override
     protected void onPostExecute(String s) {
         listener.gotJokeFromApi(s);
-        Log.v("EndPointAsyncTask", "joke correctly fetched: " + s);
     }
 
     public interface JokeResultListener {
